@@ -1,0 +1,42 @@
+---
+import { projects } from "../data/projects";
+
+const grouped = {};
+
+for (const project of projects) {
+  for (const tag of project.tags) {
+    if (!grouped[tag]) grouped[tag] = [];
+    grouped[tag].push(project);
+  }
+}
+---
+
+<header class="nav">
+  <nav class="menu">
+
+    <a href="/">Home</a>
+
+    <div class="dropdown">
+      <a href="/projects"><button class="dropbtn">Projects</button></a>
+
+      <div class="dropdown-content">
+        {Object.entries(grouped).map(([tag, items]) => (
+          <div class="section">
+
+            <div class="tag-title">{tag}</div>
+
+            {items.map(project => (
+              <a href={`/projects/${project.slug}`}>
+                {project.title}
+              </a>
+            ))}
+
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <a href="/about">About</a>
+
+  </nav>
+</header>

@@ -1,0 +1,33 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { projects } from "../data/projects";
+---
+
+<BaseLayout title="Projects">
+
+  <div class="projects-page">
+
+    <h1 class="page-title">Projects</h1>
+
+    <div class="projects-grid">
+
+      {projects.map(project => (
+        <a
+          class="project-card"
+          href={`/projects/${project.slug}`}
+        >
+          <div class="project-title">{project.title}</div>
+
+          <div class="project-tags">
+            {project.tags.map(tag => (
+              <span class="tag">{tag}</span>
+            ))}
+          </div>
+        </a>
+      ))}
+
+    </div>
+
+  </div>
+
+</BaseLayout>

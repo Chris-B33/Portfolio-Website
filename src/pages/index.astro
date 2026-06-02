@@ -1,0 +1,15 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { projects } from "../data/projects";
+
+const tags = [
+    ...new Set(
+        projects.flatMap(
+        p => p.tags
+    ))
+];
+---
+
+<BaseLayout title="Projects">
+    <h1>Welcome to my Portfolio Website!</h1>
+</BaseLayout>
