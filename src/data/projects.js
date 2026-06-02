@@ -6,12 +6,6 @@ export const projects = [
         description: "Sorting algorithm visualizer"
     },
     {
-        title: "Brophy's Game of Life",
-        slug: "bgol",
-        tags: ["Python"],
-        description: "Browser Game of Life"
-    },
-    {
         title: "Federated Imitation Learning",
         slug: "fil",
         tags: ["Python"],
@@ -22,5 +16,11 @@ export const projects = [
         slug: "rrm",
         tags: ["Lua"],
         description: "Mario Kart DS Reinforcement Learning"
-    }
+    },
+    {
+        title: "Brophy's Game of Life",
+        slug: "bgol",
+        tags: ["Python"],
+        description: "Browser Game of Life"
+    },
 ];
