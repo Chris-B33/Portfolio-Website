@@ -16,7 +16,7 @@
 }
 
 /* ========================= */
-/* MENU LAYOUT
+/* MENU */
 /* ========================= */
 
 .menu {
@@ -25,12 +25,13 @@
   align-items: center;
 
   gap: 28px;
-
   line-height: 1;
+
+  position: relative; /* IMPORTANT: anchors dropdown to whole nav */
 }
 
 /* ========================= */
-/* NAV ITEMS (perfect alignment fix)
+/* NAV ITEMS */
 /* ========================= */
 
 .menu a,
@@ -42,8 +43,6 @@
   align-items: center;
   justify-content: center;
 
-  height: 100%;
-
   font-family: inherit;
   font-size: 15px;
   font-weight: 500;
@@ -53,7 +52,6 @@
   background: none;
   border: none;
 
-  padding: 6px 2px;
   margin: 0;
 
   line-height: 1;
@@ -65,7 +63,22 @@
   transition: 0.2s;
 }
 
-/* hover */
+/* hover color */
+.menu a:hover,
+.dropbtn:hover {
+  color: var(--primary);
+}
+
+/* ========================= */
+/* UNDERLINE FIX (NO DOUBLE BUG) */
+/* ========================= */
+
+/*
+IMPORTANT FIX:
+Only ONE selector group controls underline.
+No separate a-only rules anywhere else.
+*/
+
 .menu a::after {
   content: "";
   position: absolute;
@@ -87,40 +100,31 @@
   transform: scaleX(1);
 }
 
-/* FORCE alignment consistency */
-.menu > * {
-  display: inline-flex;
-  align-items: center;
-  height: 100%;
-}
-
 /* ========================= */
-/* DROPDOWN
+/* DROPDOWN (FIXED POSITIONING) */
 /* ========================= */
 
 .dropdown {
   position: relative;
 }
 
-/* panel */
 .dropdown-content {
   display: none;
   position: absolute;
 
-  top: calc(100% - 4px);
-  left: 50%;
-  transform: translateX(-50%);
+  top: calc(100% + 4px);
+  transform: translateX(-37.5%);
+
+  min-width: 280px;
 
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 12px;
 
-  min-width: 280px;
-
   box-shadow: 0 10px 30px rgba(31, 122, 224, 0.08);
-  
+
+  padding: 1rem;
   z-index: 200;
-  padding: 0.5rem;
 
   font-size: 14px;
 }
@@ -132,21 +136,18 @@
 }
 
 /* ========================= */
-/* DROPDOWN CONTENT
+/* DROPDOWN CONTENT */
 /* ========================= */
 
 .section {
   margin-bottom: 10px;
 }
 
-/* category title */
 .tag-title {
   font-size: 12px;
   font-weight: 600;
 
   color: var(--muted);
-
-  display: block;
 
   padding-bottom: 6px;
   margin-bottom: 10px;
@@ -154,7 +155,7 @@
   border-bottom: 1px solid var(--border);
 }
 
-/* links inside dropdown */
+/* links */
 .dropdown-content a {
   display: block;
 
@@ -168,6 +169,7 @@
   transition: 0.2s;
 }
 
-.dropbtn {
-  padding: 0;
+.dropdown-content a:hover {
+  background: #eaf4ff;
+  color: var(--primary-dark);
 }
